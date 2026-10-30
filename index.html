@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sneffle Distribuciones</title>
+<meta name="description" content="Sneffle Distribuciones trae a El Salvador productos saludables que todavía no se consiguen aquí: importación, registro sanitario y distribución a supermercados, clubes de precio y farmacias.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: una sola columna, banda verde para el inicio, tarjetas en cuadrícula que se apilan en celular. */
+:root{
+  --bg:#f3f6f0; --surface:#ffffff; --ink:#132a22; --muted:#55685f; --line:#d6e0d8;
+  --forest:#123c2f; --pistachio:#b9cf8c; --citrus:#f2772f; --on-forest:#eef4e6;
+  --f-display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0e1714; --surface:#15211c; --ink:#e7efe9; --muted:#9fb3a8; --line:#283a32;
+  --forest:#0b2a20; --pistachio:#a9c47a; --citrus:#ff8a48; --on-forest:#eef4e6; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+
+/* Encabezado */
+.top{background:var(--forest);color:var(--on-forest)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.logo{font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--pistachio);display:inline-block;box-shadow:10px 0 0 var(--citrus)}
+.logo span{margin-left:10px}
+.navlinks{display:flex;gap:6px;align-items:center}
+.navlinks a{text-decoration:none;font-weight:500;font-size:.95rem;padding:8px 12px;border-radius:99px}
+.navlinks a:hover{background:rgba(255,255,255,.08)}
+.lang{border:1px solid rgba(238,244,230,.35);background:transparent;color:var(--on-forest);font:inherit;font-size:.85rem;font-weight:600;padding:6px 12px;border-radius:99px;cursor:pointer}
+.hero{padding-block:56px 88px;display:grid;gap:28px}
+.hero h1{font-size:clamp(2.1rem,6vw,4rem);font-weight:700;max-width:16ch;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--pistachio)}
+.hero p{font-size:1.15rem;max-width:56ch;opacity:.88}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;padding:13px 22px;border-radius:99px;border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn-main{background:var(--citrus);color:#1d0d03}
+.btn-ghost{background:transparent;color:var(--on-forest);border:1px solid rgba(238,244,230,.4)}
+.btn:focus-visible,.lang:focus-visible,.navlinks a:focus-visible{outline:3px solid var(--pistachio);outline-offset:2px}
+
+/* Secciones */
+section{padding-block:72px}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--citrus);margin-bottom:12px}
+section h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:700;max-width:22ch;margin-bottom:16px}
+.lead{color:var(--muted);max-width:60ch;font-size:1.08rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:36px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:10px;align-content:start}
+.card h3{font-size:1.05rem;font-weight:500}
+.card p{color:var(--muted);font-size:.98rem}
+.dot{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--bg);font-family:var(--f-display);font-weight:700;color:var(--forest)}
+@media (prefers-color-scheme: dark){.dot{color:var(--pistachio)}}
+
+/* Pasos */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:6px}
+.steps li::before{content:"0" counter(s);font-family:var(--f-display);font-weight:700;color:var(--citrus);font-size:.9rem}
+.steps b{font-size:1.05rem}
+.steps span{color:var(--muted);font-size:.96rem}
+
+/* Canales */
+.channels{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:10px 18px;font-weight:500}
+
+/* Contacto */
+.contact{background:var(--forest);color:var(--on-forest);border-radius:28px;padding:44px clamp(24px,5vw,56px);display:grid;gap:18px}
+.contact h2{color:var(--on-forest)}
+.contact p{opacity:.85;max-width:52ch}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.mail code{font-family:var(--f-body);font-weight:600;font-size:clamp(1rem,2.6vw,1.3rem);background:rgba(255,255,255,.08);padding:12px 16px;border-radius:12px;user-select:all;word-break:break-all}
+footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+@media (max-width:560px){.navlinks a{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#"><i></i><span>Sneffle</span></a>
+      <div class="navlinks">
+        <a href="#marcas" data-es="Para marcas" data-en="For brands">Para marcas</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+        <button class="lang" id="lang" type="button" aria-label="Cambiar idioma">EN</button>
+      </div>
+    </nav>
+    <div class="hero">
+      <h1 data-es="Productos saludables que El Salvador <em>todavía no conoce.</em>" data-en="Better-for-you products El Salvador <em>hasn't met yet.</em>">Productos saludables que El Salvador <em>todavía no conoce.</em></h1>
+      <p data-es="Sneffle Distribuciones importa y distribuye marcas de bienestar, hidratación y snacks saludables. Nos encargamos de todo para que tu producto llegue a supermercados, clubes de precio y farmacias del país." data-en="Sneffle Distribuciones imports and distributes wellness, hydration and better-for-you snack brands. We handle everything needed to get your product into supermarkets, warehouse clubs and pharmacies across the country.">Sneffle Distribuciones importa y distribuye marcas de bienestar, hidratación y snacks saludables. Nos encargamos de todo para que tu producto llegue a supermercados, clubes de precio y farmacias del país.</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#contacto" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
+        <a class="btn btn-ghost" href="#marcas" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="eyebrow" data-es="Qué hacemos" data-en="What we do">Qué hacemos</div>
+      <h2 data-es="Buscamos lo que el consumidor salvadoreño ya pide y todavía no encuentra." data-en="We find what Salvadoran shoppers already want and can't get yet.">Buscamos lo que el consumidor salvadoreño ya pide y todavía no encuentra.</h2>
+      <p class="lead" data-es="Cada vez más gente en El Salvador busca opciones sin azúcar, altas en proteína y mejores para hidratarse. Nosotros revisamos qué falta en las góndolas y traemos marcas que llenan ese espacio." data-en="More and more people in El Salvador look for sugar-free, high-protein and better hydration options. We study what's missing on the shelves and bring in brands that fill that gap.">Cada vez más gente en El Salvador busca opciones sin azúcar, altas en proteína y mejores para hidratarse. Nosotros revisamos qué falta en las góndolas y traemos marcas que llenan ese espacio.</p>
+      <div class="grid">
+        <div class="card"><div class="dot">H</div><h3 data-es="Hidratación" data-en="Hydration">Hidratación</h3><p data-es="Electrolitos y mezclas para bebidas, pensados para el calor, el deporte y el día a día." data-en="Electrolyte drink mixes built for heat, sport and everyday life.">Electrolitos y mezclas para bebidas, pensados para el calor, el deporte y el día a día.</p></div>
+        <div class="card"><div class="dot">S</div><h3 data-es="Untables y snacks sin azúcar" data-en="Sugar-free spreads & snacks">Untables y snacks sin azúcar</h3><p data-es="Cremas de nueces, granolas y snacks con ingredientes simples y sin azúcar añadida." data-en="Nut butters, granolas and snacks with simple ingredients and no added sugar.">Cremas de nueces, granolas y snacks con ingredientes simples y sin azúcar añadida.</p></div>
+        <div class="card"><div class="dot">B</div><h3 data-es="Bienestar" data-en="Wellness">Bienestar</h3><p data-es="Productos de cuidado y nutrición que ya son populares afuera y aquí todavía no se consiguen." data-en="Care and nutrition products that are popular abroad and not yet available here.">Productos de cuidado y nutrición que ya son populares afuera y aquí todavía no se consiguen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="marcas" style="padding-top:24px">
+    <div class="wrap">
+      <div class="eyebrow" data-es="Para marcas" data-en="For brands">Para marcas</div>
+      <h2 data-es="Tu marca en El Salvador, sin que tengas que estar aquí." data-en="Your brand in El Salvador, without having to be here.">Tu marca en El Salvador, sin que tengas que estar aquí.</h2>
+      <p class="lead" data-es="Somos tu socio local. Desde el primer pedido hasta que el producto está en la góndola." data-en="We're your local partner, from the first order to the product sitting on the shelf.">Somos tu socio local. Desde el primer pedido hasta que el producto está en la góndola.</p>
+      <ol class="steps">
+        <li><b data-es="Estudio de mercado" data-en="Market research">Estudio de mercado</b><span data-es="Revisamos precios, competencia y dónde encaja tu producto." data-en="We review pricing, competition and where your product fits.">Revisamos precios, competencia y dónde encaja tu producto.</span></li>
+        <li><b data-es="Registro sanitario" data-en="Sanitary registration">Registro sanitario</b><span data-es="Hacemos el trámite ante la Superintendencia de Regulación Sanitaria (SRS) y la etiqueta en español." data-en="We handle registration with El Salvador's health regulator (SRS) and Spanish labeling.">Hacemos el trámite ante la Superintendencia de Regulación Sanitaria (SRS) y la etiqueta en español.</span></li>
+        <li><b data-es="Importación" data-en="Importing">Importación</b><span data-es="Coordinamos el flete, la aduana y la bodega." data-en="We coordinate freight, customs and warehousing.">Coordinamos el flete, la aduana y la bodega.</span></li>
+        <li><b data-es="Venta y seguimiento" data-en="Sales & follow-up">Venta y seguimiento</b><span data-es="Presentamos tu marca a compradores y damos seguimiento a cómo se vende." data-en="We pitch your brand to buyers and track how it sells.">Presentamos tu marca a compradores y damos seguimiento a cómo se vende.</span></li>
+      </ol>
+      <div class="channels" aria-label="Canales">
+        <span class="chip" data-es="Clubes de precio" data-en="Warehouse clubs">Clubes de precio</span>
+        <span class="chip" data-es="Supermercados" data-en="Supermarkets">Supermercados</span>
+        <span class="chip" data-es="Farmacias" data-en="Pharmacies">Farmacias</span>
+        <span class="chip" data-es="Tiendas saludables y gimnasios" data-en="Health stores & gyms">Tiendas saludables y gimnasios</span>
+        <span class="chip" data-es="Venta en línea" data-en="E-commerce">Venta en línea</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding-top:24px">
+    <div class="wrap">
+      <div class="contact">
+        <h2 data-es="¿Tienes una marca o quieres trabajar con nosotros?" data-en="Have a brand or want to work with us?">¿Tienes una marca o quieres trabajar con nosotros?</h2>
+        <p data-es="Escríbenos y te respondemos en uno o dos días hábiles." data-en="Write to us and we'll reply within one or two business days.">Escríbenos y te respondemos en uno o dos días hábiles.</p>
+        <div class="mail">
+          <code id="email">gabrielaorellana@sneffle.com</code>
+          <a class="btn btn-main" href="mailto:gabrielaorellana@sneffle.com" data-es="Escribir correo" data-en="Send an email">Escribir correo</a>
+          <button class="btn btn-ghost" id="copy" type="button" data-es="Copiar" data-en="Copy">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Sneffle Distribuciones · San Salvador, El Salvador</span>
+  <span>sneffle.com</span>
+</footer>
+
+<script>
+let lang='es';
+const btn=document.getElementById('lang');
+btn.addEventListener('click',()=>{
+  lang=lang==='es'?'en':'es';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-es]').forEach(el=>{el.innerHTML=el.dataset[lang]});
+  btn.textContent=lang==='es'?'EN':'ES';
+  btn.setAttribute('aria-label',lang==='es'?'Cambiar idioma':'Change language');
+});
+document.getElementById('copy').addEventListener('click',async e=>{
+  const b=e.currentTarget, t=b.textContent;
+  try{await navigator.clipboard.writeText('gabrielaorellana@sneffle.com');b.textContent=lang==='es'?'Copiado':'Copied'}
+  catch{const r=document.createRange();r.selectNodeContents(document.getElementById('email'));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+  setTimeout(()=>b.textContent=t,1800);
+});
+</script>
+</body>
+</html>
